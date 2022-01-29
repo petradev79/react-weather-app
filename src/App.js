@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import GetLocationForm from './components/GetLocationForm';
+import { fetchWeather } from './components/api/featcWeather';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [locationData, setLocationData] = useState({});
+
+  const getLocationHandler = async location => {
+    const data = await fetchWeather(location);
+    setLocationData(data);
+  };
+
+  useEffect(() => {
+    getLocationHandler('Niš');
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main'>
+      <GetLocationForm onGetLocation={getLocationHandler} />
+      <h1>{locationData.name}</h1>
+      {locationData.name && <h1>{locationData.main.temp}</h1>}
+      {locationData.name && <h1>{locationData.weather[0].description}</h1>}
+      {locationData.name && (
+        <h1>
+          {locationData.main.temp_min} / {locationData.main.temp_max}
+        </h1>
+      )}
+      {locationData.name && (
+        <img
+          src={`http://openweathermap.org/img/wn/${locationData.weather[0].icon}@2x.png`}
+          alt='weather icon'
+        />
+      )}
+      {console.log(locationData)}
     </div>
   );
-}
+};
 
 export default App;
