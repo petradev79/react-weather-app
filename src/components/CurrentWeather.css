@@ -28,6 +28,7 @@
 }
 .current__name {
   font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 .current__date {
   font-size: 1.4rem;
@@ -67,6 +68,7 @@
   }
   .current__name {
     font-size: 7rem;
+    margin-bottom: 0;
   }
   .current__date {
     font-size: 1.6rem;

@@ -6,6 +6,7 @@ const GetLocationForm = ({ onGetLocation }) => {
 
   const getLocation = e => {
     e.preventDefault();
+    if (!location) return;
     onGetLocation(location);
     setLocation('');
   };

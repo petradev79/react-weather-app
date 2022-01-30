@@ -9,11 +9,17 @@ import clouds from './assets/cloudy.jpg';
 import './App.css';
 
 const App = () => {
-  const [locationData, setLocationData] = useState({});
+  const [locationData, setLocationData] = useState(null);
+  const [error, setError] = useState('');
 
   const getLocationHandler = async location => {
-    const data = await fetchWeather(location);
-    setLocationData(data);
+    try {
+      const data = await fetchWeather(location);
+      setLocationData(data);
+      setError(null);
+    } catch (err) {
+      setError(err);
+    }
   };
 
   useEffect(() => {
@@ -25,13 +31,22 @@ const App = () => {
       <img src={clouds} alt='Clouds' className='bg-img' />
       <div className='container'>
         <GetLocationForm onGetLocation={getLocationHandler} />
-        {locationData.current && <CurrentWeather locationData={locationData} />}
-        {locationData.current && <AstroWeather locationData={locationData} />}
-        <div>
-          {locationData.current && <HoursWeather locationData={locationData} />}
-          {locationData.current && <DaysWeather locationData={locationData} />}
-        </div>
-        {console.log(locationData)}
+        {error && (
+          <p className='error-message'>
+            Sorry, something went wrong! Maybe you misspelled the city. Please
+            try again 😢
+          </p>
+        )}
+        {locationData && (
+          <>
+            <CurrentWeather locationData={locationData} />
+            <AstroWeather locationData={locationData} />
+            <div>
+              <HoursWeather locationData={locationData} />
+              <DaysWeather locationData={locationData} />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

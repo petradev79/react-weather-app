@@ -14,7 +14,6 @@ const AstroWeather = ({ locationData }) => {
   return (
     <div className='astro'>
       <h3 className='astro__title'>Weather Details</h3>
-      {console.log(astro)}
       {Object.entries(astro).map(([item, value]) => (
         <div className='astro__group' key={item}>
           <h5 className='astro__text'>{item}</h5>
