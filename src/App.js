@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchWeather } from './components/api/featcWeather';
+import { fetchWeather } from './api/featcWeather';
 import GetLocationForm from './components/GetLocationForm';
 import CurrentWeather from './components/CurrentWeather';
 import HoursWeather from './components/HoursWeather';

@@ -1,4 +1,4 @@
-import { formatDate } from './date/formatDate';
+import { formatDate } from '../date/formatDate';
 import './DaysWeather.css';
 
 const generateDay = day => {
