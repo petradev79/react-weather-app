@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = '3d733b11c0ee4d39ae8180218211106';
-const BASE_URL = 'http://api.weatherapi.com/v1/';
+const BASE_URL = 'https://api.weatherapi.com/v1/';
 
 export const fetchWeather = async query => {
   const { data } = await axios.get(
