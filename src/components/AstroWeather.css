@@ -1,0 +1,30 @@
+.astro {
+  margin: 0 4rem;
+  padding: 6rem 0;
+  border-bottom: 1px solid;
+  display: none;
+}
+
+.astro__title {
+  font-size: 1.8rem;
+  margin-bottom: 6rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+.astro__group {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.4rem;
+}
+.astro__text {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 1200px) {
+  .astro {
+    display: block;
+  }
+}

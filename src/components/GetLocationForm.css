@@ -1,7 +1,3 @@
-.form {
-  border: 1px solid red;
-}
-
 input {
   width: 70%;
   /* margin: 2rem 4rem; */
@@ -18,7 +14,7 @@ input {
   font-weight: inherit;
   letter-spacing: 1.5px;
   border-bottom: 1px solid;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   /* @include respond(phone) {
     margin: 2rem;
@@ -33,8 +29,9 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  width: 6rem;
-  height: 6rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  /* height: 5.8rem; */
   border: none;
   color: inherit;
   cursor: pointer;

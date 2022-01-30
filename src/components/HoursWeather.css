@@ -1,0 +1,43 @@
+.hours {
+  padding-bottom: 2rem;
+  display: flex;
+  overflow: auto;
+  /* &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-grey;
+    border-radius: 1rem;
+  } */
+}
+
+.hours::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hours::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey);
+  border-radius: 1rem;
+}
+
+.hour {
+  /* padding: 0 4rem; */
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hour__time {
+  font-size: 1.2rem;
+}
+.hour__temp {
+  font-size: 1.6rem;
+}
+.hour__img {
+  height: 3rem;
+  margin: 1.5rem 0;
+}

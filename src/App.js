@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
-import GetLocationForm from './components/GetLocationForm';
 import { fetchWeather } from './components/api/featcWeather';
+import GetLocationForm from './components/GetLocationForm';
+import CurrentWeather from './components/CurrentWeather';
+import HoursWeather from './components/HoursWeather';
+import DaysWeather from './components/DaysWeather';
+import AstroWeather from './components/AstroWeather';
+import clouds from './assets/cloudy.jpg';
 import './App.css';
 
 const App = () => {
@@ -17,22 +22,17 @@ const App = () => {
 
   return (
     <div className='main'>
-      <GetLocationForm onGetLocation={getLocationHandler} />
-      <h1>{locationData.name}</h1>
-      {locationData.name && <h1>{locationData.main.temp}</h1>}
-      {locationData.name && <h1>{locationData.weather[0].description}</h1>}
-      {locationData.name && (
-        <h1>
-          {locationData.main.temp_min} / {locationData.main.temp_max}
-        </h1>
-      )}
-      {locationData.name && (
-        <img
-          src={`http://openweathermap.org/img/wn/${locationData.weather[0].icon}@2x.png`}
-          alt='weather icon'
-        />
-      )}
-      {console.log(locationData)}
+      <img src={clouds} alt='Clouds' className='bg-img' />
+      <div className='container'>
+        <GetLocationForm onGetLocation={getLocationHandler} />
+        {locationData.current && <CurrentWeather locationData={locationData} />}
+        {locationData.current && <AstroWeather locationData={locationData} />}
+        <div>
+          {locationData.current && <HoursWeather locationData={locationData} />}
+          {locationData.current && <DaysWeather locationData={locationData} />}
+        </div>
+        {console.log(locationData)}
+      </div>
     </div>
   );
 };
